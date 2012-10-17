@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="minUsername">90dp</dimen>
+    <dimen name="loginPadding">10dp</dimen>
+
+</resources>

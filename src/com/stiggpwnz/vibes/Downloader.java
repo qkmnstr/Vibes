@@ -131,8 +131,9 @@ public class Downloader {
 							notification.contentView.setProgressBar(R.id.downloadProgress, 100, progress, false);
 							notification.contentView.setTextViewText(R.id.textPercent, progress + " %");
 						} else {
-							notification = new NotificationCompat2.Builder(context).setSmallIcon(R.drawable.download_icon).setContentTitle(song.toString())
-									.setTicker(song.toString()).setContentText(secondary).setContentIntent(intent).setProgress(100, progress, false).build();
+							notification = new NotificationCompat2.Builder(context).setSmallIcon(R.drawable.download_icon)
+									.setContentTitle(song.toString()).setTicker(song.toString()).setContentText(secondary).setContentIntent(intent)
+									.setProgress(100, progress, false).build();
 							notification.flags |= Notification.FLAG_ONGOING_EVENT;
 						}
 
@@ -171,15 +172,16 @@ public class Downloader {
 			String contentTitle = song.toString();
 			String contentText = context.getString(success ? R.string.download_success : R.string.download_fail);
 			Log.d(VibesApplication.VIBES, contentText);
-			Notification notification = new NotificationCompat2.Builder(context).setContentTitle(contentTitle).setContentText(contentText).setSmallIcon(icon)
-					.setContentIntent(intent).setTicker(contentTitle).build();
+			Notification notification = new NotificationCompat2.Builder(context).setContentTitle(contentTitle).setContentText(contentText)
+					.setSmallIcon(icon).setContentIntent(intent).setTicker(contentTitle).build();
 			notification.flags |= Notification.FLAG_AUTO_CANCEL;
 			notificationManager.notify(FINISHED, song.aid, notification);
 		}
 
 		private void showNotification() {
 			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-				notification = new NotificationCompat2.Builder(context).setSmallIcon(R.drawable.download_icon).setContentIntent(intent).setTicker(song.toString()).build();
+				notification = new NotificationCompat2.Builder(context).setSmallIcon(R.drawable.download_icon).setContentIntent(intent)
+						.setTicker(song.toString()).build();
 				notification.contentView = new RemoteViews(context.getPackageName(), R.layout.downloader);
 				notification.contentView.setTextViewText(R.id.downloadTitle, song.toString());
 				notification.flags |= Notification.FLAG_ONGOING_EVENT;
